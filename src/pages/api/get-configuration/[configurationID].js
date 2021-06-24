@@ -24,13 +24,13 @@ export const handler = async (request, response) => {
 	}
 
 	try {
-		const response = await vercel.getConfiguration({
+		const configurationResponse = await vercel.getConfiguration({
 			accessToken,
 			configurationID,
 		})
-		const responseJSON = await response.json()
+		const configurationResponseJSON = await configurationResponse.json()
 
-		console.log('Configuration:', JSON.stringify(responseJSON, null, 2))
+		console.log('Configuration:', JSON.stringify(configurationResponseJSON, null, 2))
 	} catch (error) {
 		console.log('ERROR', error)
 		return response.status(httpStatus.INTERNAL_SERVER_ERROR).json({

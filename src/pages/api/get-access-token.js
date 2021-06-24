@@ -31,10 +31,10 @@ export const handler = async (request, response) => {
 
 	// Get access token from Vercel
 	try {
-		const response = await vercel.getAccessToken(code)
-		const responseJSON = await response.json()
+		const accessTokenResponse = await vercel.getAccessToken(code)
+		const accessTokenResponseJSON = await accessTokenResponse.json()
 
-		accessToken = responseJSON.access_token
+		accessToken = accessTokenResponseJSON.access_token
 	} catch (error) {
 		return response.status(httpStatus.INTERNAL_SERVER_ERROR).json({
 			errors: [error],
@@ -43,12 +43,12 @@ export const handler = async (request, response) => {
 
 	// Get configuration from Vercel
 	try {
-		const response = await vercel.getConfiguration({
+		const configurationResponse = await vercel.getConfiguration({
 			accessToken,
 			configurationID,
 		})
-		const responseJSON = await response.json()
-		projects = responseJSON.configuration.projects
+		const configurationResponseJSON = await configurationResponse.json()
+		projects = configurationResponseJSON.configuration.projects
 	} catch (error) {
 		return response.status(httpStatus.INTERNAL_SERVER_ERROR).json({
 			errors: [error],
