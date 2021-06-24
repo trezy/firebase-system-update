@@ -13,7 +13,15 @@ function vercelFetch(route, options) {
 
 	if (parsedOptions.queryParams) {
 		Object.entries(parsedOptions.queryParams).forEach(([key, value]) => {
-			parsedRoute.searchParams.append(key, value)
+			if (value === false) {
+				return parsedRoute.searchParams.append(key, 'false')
+			}
+
+			if (!value) {
+				return false
+			}
+
+			return parsedRoute.searchParams.append(key, value)
 		})
 	}
 

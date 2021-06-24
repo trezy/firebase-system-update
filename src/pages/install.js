@@ -43,12 +43,15 @@ export async function getServerSideProps(context) {
 		teamId: teamID,
 	} = parseQueryParams(request.url)
 
-	return {
-		props: {
-			code,
-			configurationID,
-			next,
-			teamID,
-		},
+	const props = {
+		code,
+		configurationID,
+		next,
 	}
+
+	if (teamID) {
+		props.teamID = teamID
+	}
+
+	return { props }
 }
