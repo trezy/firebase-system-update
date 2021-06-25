@@ -46,7 +46,7 @@ async function apiFetch(route, options) {
 export function getConfiguration(options) {
 	const { configurationID } = options
 
-	return apiFetch(`/get-configuration/${configurationID}`)
+	return apiFetch(`/configuration/${configurationID}`)
 }
 
 export function install(options) {
