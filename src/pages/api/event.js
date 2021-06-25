@@ -6,11 +6,12 @@ import crypto from 'crypto'
 
 
 // Local imports
-import { createEndpoint } from 'helpers/createEndpoint'
 import {
+	firebase,
 	firestore,
-	securityRules,
 } from 'helpers/firebase.admin'
+import { createEndpoint } from 'helpers/createEndpoint'
+import { deployFirestore } from 'helpers/deployFirestore'
 import httpStatus from 'helpers/httpStatus'
 
 
@@ -44,24 +45,55 @@ async function handleConfigurationRemoved(payload) {
 }
 
 async function handleDeploymentReady(payload) {
-	console.log('handleDeploymentReady', JSON.stringify(payload, null, 2))
-
 	if (payload.target === 'production') {
 		const {
-			githubCommitSha,
-			githubOrg,
-			githubRepo,
-		} = payload.deployment.meta
+			deployment: {
+				meta: {
+					githubCommitSha,
+					githubOrg,
+					githubRepo,
+				},
+			},
+			projectId: projectID,
+		} = payload
 
-		const filePath = 'firebase/database.rules.json'
-		const rawFileDownloadPath = `https://raw.githubusercontent.com/${githubOrg}/${githubRepo}/${githubCommitSha}/${filePath}`
+		const projectDoc = await firestore
+			.collection('projects')
+			.doc(projectID)
+			.get()
+		const project = projectDoc.data()
+
+		const serviceAccountDoc = await firestore
+			.collection('serviceAccounts')
+			.doc(project.serviceAccountID)
+			.get()
+		const serviceAccount = serviceAccountDoc.data()
+
+		const deploymentPromises = []
+
+		let localAdminApp = null
+
+		try {
+			localAdminApp = firebase.app(projectID)
+		} catch (error) {
+			localAdminApp = firebase.initializeApp({
+				credential: firebase.credential.cert(serviceAccount),
+				// databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+			}, projectID)
+		}
+
+		if (project.serviceConfigs.firestore.isEnabled) {
+			deploymentPromises.push(deployFirestore({
+				githubCommitSha,
+				githubOrg,
+				githubRepo,
+				localAdminApp,
+				project,
+			}))
+		}
+
+		await Promise.all(deploymentPromises)
 	}
-
-	// securityRules
-	// return firestore
-	// 	.collection('configurations')
-	// 	.doc(configurationID)
-	// 	.delete()
 }
 
 export const handler = async (request, response) => {
