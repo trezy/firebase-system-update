@@ -1,7 +1,4 @@
 <div align="center">
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <h1><code>Firebase System Update</code></h1>
 
   <p>Firebase System Update automates the deployment of Firebase services from Vercel projects.</p>
@@ -9,13 +6,16 @@
   <hr />
 </div>
 
-[![BSD-3-Clause License][license-badge]][license]
-[![Code of Conduct][code-of-conduct-badge]][code-of-conduct]
-[![PRs Welcome][prs-badge]][prs]
-
 [![Code Coverage][coveralls-badge]][coveralls]
 [![Maintainability][codeclimate-badge]][codeclimate]
 [![Dependencies][daviddm-badge]][daviddm]
+
+[![BSD-3-Clause License][license-badge]][license]
+[![Code of Conduct][code-of-conduct-badge]][code-of-conduct]
+[![PRs Welcome][prs-badge]][prs]
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Watch on GitHub][github-watch-badge]][github-watch]
 [![Star on GitHub][github-star-badge]][github-star]
