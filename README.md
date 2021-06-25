@@ -1,4 +1,7 @@
 <div align="center">
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <h1><code>Firebase System Update</code></h1>
 
   <p>Firebase System Update automates the deployment of Firebase services from Vercel projects.</p>
@@ -68,3 +71,23 @@ If you want to contribute, make sure to check out our [contributing guide][contr
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [twitter]: https://twitter.com/intent/tweet?text=Check%20out%20firebase-system-update%20by%20%40TrezyCodes%20https%3A%2F%2Fgithub.com%2Ftrezy%2Ffirebase-system-update%20%F0%9F%91%8D
 [twitter-badge]: https://img.shields.io/twitter/url/https/github.com/trezy/firebase-system-update.svg?style=social
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://trezy.com"><img src="https://avatars.githubusercontent.com/u/442980?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Trezy</b></sub></a><br /><a href="https://github.com/trezy/firebase-system-update/commits?author=trezy" title="Code">💻</a> <a href="#content-trezy" title="Content">🖋</a> <a href="https://github.com/trezy/firebase-system-update/commits?author=trezy" title="Documentation">📖</a> <a href="#design-trezy" title="Design">🎨</a> <a href="#ideas-trezy" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-trezy" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-trezy" title="Maintenance">🚧</a> <a href="#projectManagement-trezy" title="Project Management">📆</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
